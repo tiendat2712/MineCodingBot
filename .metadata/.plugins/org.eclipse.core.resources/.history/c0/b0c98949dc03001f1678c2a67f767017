@@ -1,0 +1,15 @@
+package datastructure.primitive;
+
+public class Ex02ModifyValue {
+
+	public static void main(String[] args) {
+		
+		int a = 5;
+		int b = 7;
+		
+		b = 10;
+		a = b;
+		
+	}
+	
+}

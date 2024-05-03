@@ -1,0 +1,5 @@
+package generic.class_interface;
+
+public interface K21List {
+
+}

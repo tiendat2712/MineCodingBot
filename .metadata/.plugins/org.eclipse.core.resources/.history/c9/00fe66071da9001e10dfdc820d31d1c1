@@ -1,0 +1,5 @@
+package generic.class_interface;
+
+public class K21CustomList<E> implements K21List<E> {
+
+}

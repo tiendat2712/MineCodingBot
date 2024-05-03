@@ -1,0 +1,22 @@
+package datastructure.object;
+
+public class Ex01ObjectDemo {
+
+	public static void main(String[] args) {
+		// khai báo và khởi tạo giá trị cho biến thuộc KDL nguyên thủy
+		int a = 12;
+		char b = '@';
+		
+		/*
+		  khai báo và khởi tạo giá trị cho biến thuộc KDL đối tượng
+		   +) new Item(); 
+		  --> gọi hàm khởi tạo mặc định của class(KDL) Item
+		  --> mặc định 1 class sẽ có hàm khởi tạo mặc định
+		 
+		 */
+		
+		
+		Item i1 = new Item();
+	}
+	
+}

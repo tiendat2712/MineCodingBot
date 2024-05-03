@@ -1,0 +1,13 @@
+package datastructure.object;
+
+public class Ex01ObjectDemo {
+
+	public static void main(String[] args) {
+		// khai báo và khởi tạo giá trị cho biến thuộc KDL nguyên thủy
+		
+		
+		// khai báo và khởi tạo giá trị cho biến thuộc KDL đối tượng
+		
+	}
+	
+}

@@ -3,7 +3,7 @@ package datastructure.object;
 public class Ex03ObjectFunctionPassing {
 	
 	/*
-	 * 
+	  
 	 Primitive Data Type
 	    + Dùng KDL có sẵn của java 
 	    + int, char, double
@@ -13,8 +13,11 @@ public class Ex03ObjectFunctionPassing {
 	    + Tạo ra KDL đối tượng: Item, Employee
 	 ??:
 	   1. Khai báo một số nguyên dùng int hay Integer. Vì sao?
+	   
+	   
 	   2. Nếu khai báo một chuỗi --> sử dụng String varName = "....";
 	                   hay là    --> String name = new String();
+	                   
 	 */
 
 	public static void main(String[] args) {

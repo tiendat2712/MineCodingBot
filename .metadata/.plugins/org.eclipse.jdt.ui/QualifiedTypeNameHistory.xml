@@ -26,7 +26,7 @@
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="java.lang.StringIndexOutOfBoundsException"/>
     <fullyQualifiedTypeName name="pattern.builder.User1.Builder"/>
+    <fullyQualifiedTypeName name="java.lang.IndexOutOfBoundsException"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="datastructure.object.Item"/>
-    <fullyQualifiedTypeName name="java.lang.IndexOutOfBoundsException"/>
 </qualifiedTypeNameHistroy>

@@ -1,4 +1,4 @@
-package datastructure.object;
+package datastructure.object.custom;
 
 /**
  * Tạo ra KDL đối tượng KDL tên là: Item

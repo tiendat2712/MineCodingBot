@@ -1,4 +1,4 @@
-package datastructure.object;
+package datastructure.object.custom;
 
 public class Ex01ObjectDemo {
 	

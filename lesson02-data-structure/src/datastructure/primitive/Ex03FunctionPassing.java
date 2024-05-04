@@ -47,8 +47,7 @@ public class Ex03FunctionPassing {
 		int tmp = a; // tmp = 5
 		a = b; // a=7; b=7
 		b = tmp; // a=7; b=5 --> done!
-		System.out.println(a);
-		System.out.println(b);
+		
 	}
 
 }

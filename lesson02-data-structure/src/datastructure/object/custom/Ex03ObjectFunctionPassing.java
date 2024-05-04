@@ -1,4 +1,4 @@
-package datastructure.object;
+package datastructure.object.custom;
 
 public class Ex03ObjectFunctionPassing {
 	
@@ -13,10 +13,12 @@ public class Ex03ObjectFunctionPassing {
 	    + Tạo ra KDL đối tượng: Item, Employee
 	 ??:
 	   1. Khai báo một số nguyên dùng int hay Integer. Vì sao?
-	   
+	      + int: thông tin luôn có giá trị 
+	      + Integer: thông tin ko bắt buộc, có thể có hoặc không
 	   
 	   2. Nếu khai báo một chuỗi --> sử dụng String varName = "....";
 	                   hay là    --> String name = new String();
+	      
 	 */
 
 	public static void main(String[] args) {

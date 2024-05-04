@@ -30,7 +30,7 @@ public class Ex03FunctionPassing {
 
 	}
 
-	// pass by value --> 100% AT STACK
+	// pass by value
 	// truyền tham số qua hàm --> truyền giá trị<STACK> qua tham số <ô nhớ ko thay
 	// đổi>
 

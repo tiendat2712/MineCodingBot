@@ -1,0 +1,11 @@
+package datastructure.object;
+
+public class Ex03ObjectFunctionPassing {
+
+	public static void main(String[] args) {
+		
+		Item i3 = new Item(3, 'C', 33d);
+		
+	}
+	
+}

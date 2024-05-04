@@ -1,0 +1,25 @@
+package datastructure.object;
+
+public class Ex03ObjectFunctionPassing {
+
+	public static void main(String[] args) {
+
+		Item i3 = new Item(3, 'C', 33d); // H3
+
+		System.out.println("i3 --> " + i3);
+
+		modify(i3);
+		System.out.println("i3 --> " + i3);
+	}
+
+	// modify(i3) --> Item item = i3;
+	private static void modify(Item item) { // H3
+		item.price = 99;
+		Item i4 = new Item(4, 'D', 44d);
+		i4 = item;
+		i4.price = 88;
+		i4 = new Item();
+		i4.price = 77;
+	}
+
+}

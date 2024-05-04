@@ -23,5 +23,4 @@ public class Ex02ObjectModifyValue {
 		System.out.println("i1 --> "+ i1); // id = 2; name = Z; price = 22d
 		System.out.println("i2 --> "+ i2); // id = 2; name = Z; price = 22d
 	}
-
 }

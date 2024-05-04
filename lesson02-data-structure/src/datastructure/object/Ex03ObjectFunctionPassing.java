@@ -17,7 +17,6 @@ public class Ex03ObjectFunctionPassing {
 	   
 	   2. Nếu khai báo một chuỗi --> sử dụng String varName = "....";
 	                   hay là    --> String name = new String();
-	                   
 	 */
 
 	public static void main(String[] args) {
@@ -40,5 +39,4 @@ public class Ex03ObjectFunctionPassing {
 		item.price = 77;
 		item = i4;                       // item --> H5
 	}
-
 }

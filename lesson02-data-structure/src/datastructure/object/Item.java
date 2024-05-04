@@ -6,6 +6,7 @@ package datastructure.object;
  * Bao gồm 3 thông tin: Item(id, name, price)
  * 
  */
+
 public class Item {
 
 	// attributes: thuộc tính

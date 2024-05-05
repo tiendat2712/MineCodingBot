@@ -18,8 +18,6 @@ public class ItemGroup {
 		this.name = name;
 	}
 
-
-
 	public Integer getId() {
 		return id;
 	}

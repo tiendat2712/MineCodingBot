@@ -40,6 +40,11 @@ public class Ex02ItemGroupView {
 				itemGroupService.getById(1)
 		);
 		
+		generate(
+				"3. Display item groups by NAME = ..", 
+				itemGroupService.getByName("Thắt lưng")
+		);
+		
 	}
 	
 }

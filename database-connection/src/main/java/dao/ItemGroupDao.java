@@ -10,6 +10,8 @@ public interface ItemGroupDao {
 	
 	ItemGroup getById(int id);
 	
+	ItemGroup getByName(String name);
+	
 	/**
 	 * Insert item-group
 	 * @param random item-group input

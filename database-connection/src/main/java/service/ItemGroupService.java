@@ -11,6 +11,9 @@ public interface ItemGroupService {
 	// --
 	ItemGroup getById(int id);
 	
+	// --
+	ItemGroup getByName(String name);
+	
 	/**
 	 * Check if the item-group already exists
 	 * 'True' --> Update

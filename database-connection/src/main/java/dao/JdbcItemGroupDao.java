@@ -31,6 +31,9 @@ public class JdbcItemGroupDao implements ItemGroupDao {
 	private static final String Q_GET_ITEM_GROUPS_BY_ID = "" 
 	        + "SELECT * FROM item_group WHERE ID = ?";
 	
+	private static final String Q_GET_ITEM_GROUPS_BY_NAME = "" 
+	        + "SELECT * FROM item_group WHERE NAME = ?";
+	
 	private static final String Q_INSERT_ITEM_GROUPS = ""
 			+ "INSERT INTO item_group(ID, NAME) \n" 
 			+ "VALUES (?, ?)";
@@ -87,6 +90,24 @@ public class JdbcItemGroupDao implements ItemGroupDao {
 			SqlUtils.close(rs, pst);
 		}
 		return result;		
+	}
+	
+	@Override
+	public ItemGroup getByName(String name) {
+		ItemGroup result = null;
+		try {
+			pst = connection.prepareStatement(Q_GET_ITEM_GROUPS_BY_NAME);
+			pst.setString(1, name);
+			rs = pst.executeQuery();
+			if (rs.next()) {
+				result = new ItemGroup(rs.getInt("ID"), rs.getString("NAME"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			SqlUtils.close(rs, pst);
+		}
+		return result;
 	}
 
 	@Override

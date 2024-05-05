@@ -12,6 +12,13 @@ public class ItemGroup {
 	 */
 	public ItemGroup() {
 	}
+	
+	public ItemGroup(Integer id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
+
 
 	public Integer getId() {
 		return id;

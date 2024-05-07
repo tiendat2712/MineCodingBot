@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.List;
 import connection.DbConnection;
 import persistence.ItemGroup;
+import persistence.dto.ItemGroupDto;
 import utils.SqlUtils;
 
 public class JdbcItemGroupDao implements ItemGroupDao {
@@ -42,6 +43,18 @@ public class JdbcItemGroupDao implements ItemGroupDao {
 			+ "UPDATE item_group \n"
 			+ "SET NAME = ? \n"
 			+ "WHERE ID = ?";
+	
+	private static final String Q_COUNT_ITEMS_IN_ITEM_GROUP = ""
+			+ "SELECT itg.ID, \n"
+			+ "       itg.`NAME`, \n"
+			+ "       SUM(itd.AMOUNT) SUM_CURRENT_AMOUNT, \n"
+			+ "       group_concat(concat('{', it.NAME, ' - ', 'SizeID ',itd.SIZE_ID, ' -> ', itd.AMOUNT, '}') SEPARATOR ', ') DETAIL_INFO \n"
+			+ "  FROM item_group itg \n"
+			+ "  JOIN item it \n"
+			+ "    ON itg.ID = it.ITEM_GROUP_ID \n"
+			+ "  JOIN item_detail itd \n"
+			+ "    ON it.ID = itd.ITEM_ID \n"
+			+ "  GROUP BY itg.ID, itg.`NAME`";
 	
 	/**
 	 * Constructor
@@ -148,6 +161,29 @@ public class JdbcItemGroupDao implements ItemGroupDao {
 		} finally {
 			SqlUtils.close(rs, pst);
 		}
+	}
+	
+	@Override
+	public List<ItemGroupDto> countItemsByItemGroup() {
+		List<ItemGroupDto> result = new ArrayList<>();
+		try {
+			pst = connection.prepareStatement(Q_COUNT_ITEMS_IN_ITEM_GROUP);
+			rs = pst.executeQuery();
+
+			while (rs.next()) {
+				ItemGroupDto ig = new ItemGroupDto();
+				ig.setIgID(rs.getInt("ID"));
+				ig.setName(rs.getString("NAME"));
+				ig.setTotalOfItems(rs.getLong("SUM_CURRENT_AMOUNT"));
+				ig.setItems(rs.getString("DETAIL_INFO"));
+				result.add(ig);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			SqlUtils.close(rs, st);
+		}
+		return result;
 	}
 
 	@Override

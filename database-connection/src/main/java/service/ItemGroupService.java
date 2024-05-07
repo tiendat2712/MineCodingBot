@@ -2,17 +2,28 @@ package service;
 
 import java.util.Collection;
 import java.util.List;
+
 import persistence.ItemGroup;
+import persistence.dto.ItemGroupDto;
 
 public interface ItemGroupService {
 	// --
 	List<ItemGroup> getAll();
 	
 	// --
+	List<ItemGroup> getItemGroupsWithItems();
+	
+	// --
 	ItemGroup getById(int id);
 	
 	// --
 	ItemGroup getByName(String name);
+	
+	/**
+	 * counting items in item-groups
+	 *   + display the item-details info
+	 */
+	List<ItemGroupDto> countItemsByItemGroup();
 	
 	/**
 	 * Check if the item-group already exists

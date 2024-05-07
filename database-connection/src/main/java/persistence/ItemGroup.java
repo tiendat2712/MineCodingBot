@@ -1,10 +1,14 @@
 package persistence;
 
+import java.util.List;
 import java.util.Objects;
 
 public class ItemGroup {
 	private Integer id;
 	private String name;
+	
+	// item-group 1-N item
+	private List<Item> items;
 
 	/**
 	 * Empty constructor
@@ -33,6 +37,14 @@ public class ItemGroup {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public List<Item> getItems() {
+		return items;
+	}
+	
+	public void setItems(List<Item> items) {
+		this.items = items;
+	}
 
 	@Override
 	public boolean equals(Object o) {
@@ -57,5 +69,7 @@ public class ItemGroup {
 	public String toString() {
 		return "ItemGroup [id=" + id + ", name=" + name + "]";
 	}
+
+	
 
 }

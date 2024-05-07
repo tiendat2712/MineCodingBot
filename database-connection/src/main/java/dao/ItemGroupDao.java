@@ -2,7 +2,9 @@ package dao;
 
 import java.util.Collection;
 import java.util.List;
+
 import persistence.ItemGroup;
+import persistence.dto.ItemGroupDto;
 
 public interface ItemGroupDao {
 	
@@ -11,6 +13,8 @@ public interface ItemGroupDao {
 	ItemGroup getById(int id);
 	
 	ItemGroup getByName(String name);
+	
+	List<ItemGroupDto> countItemsByItemGroup();
 	
 	/**
 	 * Insert item-group

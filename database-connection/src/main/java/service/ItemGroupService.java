@@ -53,4 +53,10 @@ public interface ItemGroupService {
 	 * @param groups
 	 */
 	void saveAll(Collection<ItemGroup> groups);
+	
+	/**
+	 * Update or Insert into a item-group
+	 * --> Using prepareCall to map a procedure in database query
+	 */
+	void merge(ItemGroup itemGroup);
 }

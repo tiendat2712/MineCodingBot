@@ -14,13 +14,16 @@ public class Ex03ItemView {
 	}
 	
 	public static void main(String[] args) {
+		
 		generate("1. Display all items", itemService.getAll());
 		
-		generate("2. Displat items by sales date = '7-9-2023' ", 
+		generate("2. Display items by sales date = '7-9-2023' ", 
 				itemService.getItemsBySalesDate(LocalDate.of(2023, 9, 7)));
-	
-	
-	
+		
+		generate("3. Display items with max amount belongs to item groups", 
+				itemService.getItemDetails());
+		
+		itemService.updateItemDetails();
 	}
 	
 }

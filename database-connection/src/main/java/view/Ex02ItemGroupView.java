@@ -18,18 +18,18 @@ public class Ex02ItemGroupView {
 	
 	public static void main(String[] args) {
 		
-		var itemGroupToBeTested1st = new ItemGroup(12, "Loại hàng 12");
-		itemGroupService.saveOrUpdate(itemGroupToBeTested1st);
+		var itemGroupToBeTested1st = new ItemGroup(12, "Loại hàng 12 updated");
+		itemGroupService.merge(itemGroupToBeTested1st);
 		
-		var itemGroupToBeTested2nd = new ItemGroup(13, "Loại hàng 13");
-		itemGroupService.saveOrUpdate(itemGroupToBeTested2nd);
+//		var itemGroupToBeTested2nd = new ItemGroup(13, "Loại hàng 13");
+//		itemGroupService.saveOrUpdate(itemGroupToBeTested2nd);
 		
 		// TODO: saveOrUpdate list with BATCH UPDATE
-		var itemGroupToBeSaved1 = new ItemGroup(16, "Loại hàng 16");
-		var itemGroupToBeSaved2 = new ItemGroup(17, "Loại hàng 17");
-		var groupToBeSaved = List.of(itemGroupToBeSaved1, itemGroupToBeSaved2);
-		
-		itemGroupService.saveAll(groupToBeSaved);
+//		var itemGroupToBeSaved1 = new ItemGroup(16, "Loại hàng 16");
+//		var itemGroupToBeSaved2 = new ItemGroup(17, "Loại hàng 17");
+//		var groupToBeSaved = List.of(itemGroupToBeSaved1, itemGroupToBeSaved2);
+//		
+//		itemGroupService.saveAll(groupToBeSaved);
 		
 		generate(
 				"1. Display all item groups", 

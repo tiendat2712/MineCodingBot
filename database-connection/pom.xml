@@ -7,17 +7,29 @@
 	<version>1.0-SNAPSHOT</version>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-	</properties>
+	  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	  <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	  
+	  <com.mysql.version>8.3.0</com.mysql.version>
+	  <commons-codec.version>1.15</commons-codec.version>
+	  
+  </properties>
+  
+  <dependencies>
+	
+	<dependency>
+	    <groupId>com.mysql</groupId>
+	    <artifactId>mysql-connector-j</artifactId>
+	    <version>${com.mysql.version}</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>commons-codec</groupId>
+	    <artifactId>commons-codec</artifactId>
+	    <version>${commons-codec.version}</version>
+	</dependency>
 
-	<dependencies>
-		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
-			<version>8.3.0</version>
-		</dependency>
-	</dependencies>
+  </dependencies>
 
 </project>
 

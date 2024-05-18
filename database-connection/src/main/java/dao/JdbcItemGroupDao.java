@@ -24,10 +24,6 @@ public class JdbcItemGroupDao implements ItemGroupDao {
 
 	private static final String Q_GET_ALL_ITEM_GROUPS = "" 
 	        + "SELECT * FROM item_group";
-    /*
-     * --> Dùng statement và nối chuỗi
-	private static final String Q_GET_ITEM_GROUPS_BY_ID = "" 
-	        + "SELECT * FROM item_group WHERE ID = "; */
 	
 	private static final String Q_GET_ITEM_GROUPS_BY_ID = "" 
 	        + "SELECT * FROM item_group WHERE ID = ?";
@@ -55,6 +51,10 @@ public class JdbcItemGroupDao implements ItemGroupDao {
 			+ "  JOIN item_detail itd \n"
 			+ "    ON it.ID = itd.ITEM_ID \n"
 			+ "  GROUP BY itg.ID, itg.`NAME`";
+	
+	private static final String Q_MERGE_ITEM_GROUP = ""
+			+ "CALL P_MERGE_INTO_ITEM_GROUP(?, ?)";
+	
 	
 	/**
 	 * Constructor
@@ -197,6 +197,20 @@ public class JdbcItemGroupDao implements ItemGroupDao {
 			e.printStackTrace();
 		} finally {
 			SqlUtils.close(rs, pst);
+		}
+	}
+	
+	@Override
+	public void merge(ItemGroup itemGroup) {
+		try {
+			pst = connection.prepareCall(Q_MERGE_ITEM_GROUP);
+			
+			pst.setInt(1, itemGroup.getId());
+			pst.setString(2, itemGroup.getName());
+			
+			pst.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
 }

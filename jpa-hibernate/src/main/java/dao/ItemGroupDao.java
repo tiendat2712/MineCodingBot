@@ -27,5 +27,12 @@ public interface ItemGroupDao {
 	 * count items in a item-group
 	 */
 	List<ItemGroupDto> countItemsByItemGroup();
+	
+	/**
+	 * Insert into a item-group to database
+	 */
+	void save(ItemGroup itemGroup);
+	
+	void saveOrUpdate(ItemGroup itemGroup);
 
 }

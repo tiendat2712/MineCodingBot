@@ -1,6 +1,8 @@
 package persistence.entities;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -9,6 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -34,6 +37,9 @@ public class Item {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ITEM_GROUP_ID", referencedColumnName = "ID")
 	private ItemGroup group;
+	
+	@OneToMany(mappedBy = "item")
+	private List<ItemDetail> itemDetails = new ArrayList<>();
 	
 	/**
 	 * Empty constructor
@@ -89,9 +95,12 @@ public class Item {
 		this.color = color;
 	}
 	
-	@Override
-	public int hashCode() {
-		return Objects.hash(getId());
+	public List<ItemDetail> getItemDetails() {
+		return itemDetails;
+	}
+	
+	public void setItemDetails(List<ItemDetail> itemDetails) {
+		this.itemDetails = itemDetails;
 	}
 	
 	public ItemGroup getGroup() {
@@ -100,6 +109,11 @@ public class Item {
 	
 	public void setGroup(ItemGroup group) {
 		this.group = group;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(getId());
 	}
 
 	@Override

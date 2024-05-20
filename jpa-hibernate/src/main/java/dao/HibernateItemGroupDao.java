@@ -12,16 +12,6 @@ import persistence.entities.ItemGroup;
 
 public class HibernateItemGroupDao extends BaseHibernateDao implements ItemGroupDao{
 	
-	// native query: viết query ở ngôn ngữ mysql/oracle
-	
-	// jpql/hql    : viết query ở dạng entities/ attribute
-	//             : jpa/hibernate tự chuyển đổi sang native db
-	
-	// name query: native/jpql/hql
-	// thay vì truyền native/jpql/hql vào
-	// khai báo cho sql đó một cái name --> truyền name vào là xong
-	// khai báo ở chỗ entity
-	
 	private static final String Q_GET_ALL_ITEM_GROUPS = "" 
 	        + "SELECT * FROM item_group";
 	
@@ -30,8 +20,6 @@ public class HibernateItemGroupDao extends BaseHibernateDao implements ItemGroup
 
 	@Override
 	public List<ItemGroup> getAll() {
-		// Từng dòng trả về từ SQL sẽ được mapping vào entity
-		// Muốn map được, entity phải mapping được với columns của sql result
 		return openSession()
 				   .createNativeQuery(Q_GET_ALL_ITEM_GROUPS, ItemGroup.class)
 				   .getResultList();
@@ -64,19 +52,7 @@ public class HibernateItemGroupDao extends BaseHibernateDao implements ItemGroup
 			+ "  JOIN item_detail itd \n"
 			+ "    ON it.ID = itd.ITEM_ID \n"
 			+ "  GROUP BY itg.ID, itg.`NAME`";
-	
-	// auto get sql row --> set java object
-	// sql --> column - alias
-	// java --> attribute - name - getter/setter
 
-	// jdbc --> setInt(?1, value), getInt(alias)
-	// jpa/hibernate
-	//   + setParameter(param, value, type)
-	//   + addScalar(alias, type)
-
-	// 1 --> alias phải là tên của thuộc tính
-	// 2 --> addScalar cũng dùng tên thuộc tính - alias
-	
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	@Override
 	public List<ItemGroupDto> countItemsByItemGroup() {
@@ -88,6 +64,16 @@ public class HibernateItemGroupDao extends BaseHibernateDao implements ItemGroup
 				   .addScalar(ItemGroupDto.PROP_ITEMS, StringType.INSTANCE)
 				   .setResultTransformer(Transformers.aliasToBean(ItemGroupDto.class))
 				   .getResultList();
+	}
+	
+	@Override
+	public void save(ItemGroup itemGroup) {
+		executeWithTransaction(session -> session.save(itemGroup));
+	}
+	
+	@Override
+	public void saveOrUpdate(ItemGroup itemGroup) {
+		executeWithTransaction(session -> session.saveOrUpdate(itemGroup));
 	}
 	
 	private Class<ItemGroup> getEntityClass() {

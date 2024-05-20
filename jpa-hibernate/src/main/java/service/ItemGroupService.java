@@ -18,4 +18,8 @@ public interface ItemGroupService {
 	 *   + display the item-details info
 	 */
 	List<ItemGroupDto> countItemsByItemGroup();
+	
+	void save(ItemGroup itemGroup);
+	
+	void saveOrUpdate(ItemGroup itemGroup);
 }

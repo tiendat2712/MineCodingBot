@@ -37,4 +37,16 @@ public class HibernateItemGroupService implements ItemGroupService {
 	public List<ItemGroupDto> countItemsByItemGroup() {
 		return itemGroupDao.countItemsByItemGroup();
 	}
+	
+	@Override
+	public void save(ItemGroup itemGroup) {
+		Objects.requireNonNull(itemGroup, "item group should not be null");
+		itemGroupDao.save(itemGroup);
+	}
+	
+	@Override
+	public void saveOrUpdate(ItemGroup itemGroup) {
+		Objects.requireNonNull(itemGroup, "item group should not be null");
+		itemGroupDao.saveOrUpdate(itemGroup);;
+	}
 }

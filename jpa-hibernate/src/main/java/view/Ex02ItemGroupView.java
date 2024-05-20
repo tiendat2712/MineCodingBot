@@ -21,12 +21,18 @@ public class Ex02ItemGroupView {
 	public static void main(String[] args) {
 		System.out.println("--------------------------------------------------");
 		
+//		ItemGroup itemGroupBeInserted = new ItemGroup(20, "Loại hàng 20");
+//		itemGroupService.save(itemGroupBeInserted);
+		
+		ItemGroup itemGroupBeUpdated = new ItemGroup(15, "Updated");
+		itemGroupService.saveOrUpdate(itemGroupBeUpdated);;
+		
 		selfGenerate(
 				"1a. Display all item-groups", itemGroupService.getAll()
 				);
 		
 		generate(
-				"1b. Display item-group by id = 2", itemGroupService.get(2)
+				"1b. Display item-group by id = 15", itemGroupService.get(15)
 				);
 		
 		generate(

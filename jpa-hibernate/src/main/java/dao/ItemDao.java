@@ -14,4 +14,5 @@ public interface ItemDao {
 	 * @return item
 	 */
 	Item get(int id);
+	
 }

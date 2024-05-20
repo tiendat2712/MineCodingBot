@@ -3,10 +3,14 @@ package view;
 import service.HibernateItemService;
 import service.ItemService;
 import java.util.Collection;
+import java.util.stream.Collectors;
+
+import net.bytebuddy.asm.Advice.Return;
 
 import static utils.CollectionUtils.*;
 
 import persistence.entities.Item;
+import persistence.entities.Size;
 
 public class Ex03ItemView {
 
@@ -26,8 +30,6 @@ public class Ex03ItemView {
 		generate(
 				"2c. Display item by ID = '3'", itemService.get(3)
 				);
-		
-		
 
 	}
 	
@@ -36,10 +38,42 @@ public class Ex03ItemView {
 		
 		elements.forEach(e -> {
 			System.out.println("   " + e);
-			System.out.println("   --> " +e.getGroup() +" \n");
+			System.out.println("   --> " + e.getGroup() +" \n");
+			
+			String sizes = e.getItemDetails().stream()
+			        .map(itd -> {
+			        	Size size = itd.getSize();
+			        	return size.getSize() + ", " + (size.getGender() == true ? "Nam" : "Nữ");
+			        })
+			        .collect(Collectors.joining(" - "));
+			
+			System.out.println("   itemDetails --> " + sizes +" \n");
+			System.out.println("   ----------------------------------------------------------------------- ");
 		});
 		
 		System.out.println("}\n");
 	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

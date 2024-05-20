@@ -22,8 +22,9 @@
 		<!-- Entity Mapping -->
 		<mapping class="persistence.entities.ItemGroup"/>
 		<mapping class="persistence.entities.Item"/>
+		<mapping class="persistence.entities.ItemDetail"/>
+		<mapping class="persistence.entities.Size"/>
 
-		
 	</session-factory>
 
 </hibernate-configuration>

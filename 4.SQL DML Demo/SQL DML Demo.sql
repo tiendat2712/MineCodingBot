@@ -220,7 +220,7 @@ SELECT * FROM order_detail;
 SELECT * FROM item_detail;
 SELECT * FROM item;
 
-SELECT COUNT(itg.ID) AS NUMBER_SALES 
+SELECT SUM(odd.AMOUNT) AS NUMBER_SALES 
   FROM item_group itg
   JOIN item it 
   ON itg.ID = it.ITEM_GROUP_ID
@@ -245,7 +245,8 @@ SELECT * FROM item_group;
 
 SELECT itg.ID, 
        itg.`NAME`, 
-       SUM(itd.AMOUNT) SUM_CURRENT_AMOUNT
+       SUM(itd.AMOUNT) SUM_CURRENT_AMOUNT,
+       group_concat(concat(it.ID, '-', it.NAME, '-', itd.SIZE_ID, '-', itd.AMOUNT) SEPARATOR ', ') DETAIL_INFO
   FROM item_group itg
   JOIN item it
   ON itg.ID = it.ITEM_GROUP_ID
@@ -494,6 +495,23 @@ SELECT * FROM CTE_TOP_2_PANTS;
 --    lấy từng dòng trong sub query
 --        nếu thỏa mãn điều kiện(???) 
 --        --> lấy dòng của main query ra
+
+ALTER TABLE item_group
+ADD CONSTRAINT UNQ_ITEM_GROUP_NAME UNIQUE(NAME);
+
+-- USE FOR JDBC
+
+SELECT it.*,
+	   '2023-09-07' SALES_DATE
+  FROM item it
+  JOIN item_detail itd
+  ON it.ID = itd.ITEM_ID
+  JOIN order_detail odt
+  ON itd.ID = odt.ITEM_DETAIL_ID
+  JOIN `order` od
+  ON od.ID = odt.ORDER_ID
+  WHERE CAST(od.CREATED_AT AS DATE) = '2023-09-07';
+
 
 
 

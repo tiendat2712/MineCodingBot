@@ -1,17 +1,18 @@
-package com.example.identity_service.entity;
+package com.example.identity_service.dto.response;
 
-import jakarta.persistence.*;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-
 import java.time.LocalDate;
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class User {
+@Builder
+public class UserResponse {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     String id;

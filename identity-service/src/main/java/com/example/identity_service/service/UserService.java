@@ -3,10 +3,13 @@ package com.example.identity_service.service;
 import com.example.identity_service.dto.request.UserCreationRequest;
 import com.example.identity_service.dto.request.UserUpdateRequest;
 import com.example.identity_service.entity.User;
+import com.example.identity_service.exception.AppException;
+import com.example.identity_service.exception.ErrorCode;
 import com.example.identity_service.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -56,6 +59,16 @@ public class UserService {
     // delete a user
     public void deleteUser(String userId) {
         userRepository.deleteById(userId);
+    }
+
+    public void testAntonationBuilder(UserCreationRequest request) {
+        UserCreationRequest request1 = UserCreationRequest.builder()
+                .username("Kikika")
+                .password("123abc")
+                .firstName("Tiến")
+                .lastName("Đạt")
+                .dob(LocalDate.of(2002,12,27))
+                .build();
     }
 
 }

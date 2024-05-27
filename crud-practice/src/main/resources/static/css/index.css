@@ -1,0 +1,28 @@
+/* CSS for styling the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #ddd; /* Thêm đường viền bao quanh bảng */
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #ffeeba;
+    color: #333;
+    font-weight: bold;
+}
+
+/* CSS for styling the buttons */
+.btn {
+    margin-right: 8px;
+}
+
+/* CSS for centering the table header */
+.text-center {
+    text-align: center;
+}
